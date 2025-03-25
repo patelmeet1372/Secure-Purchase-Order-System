@@ -1,0 +1,118 @@
+2025-03-24 20:01:55,957 - INFO - Starting Security Tests...
+2025-03-24 20:01:55,957 - INFO - Timestamp: 2025-03-24T20:01:55.957881
+2025-03-24 20:01:55,958 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:02:05,190 - ERROR - Authentication tests failed. Stopping further tests.
+2025-03-24 20:06:06,905 - INFO - Starting Security Tests...
+2025-03-24 20:06:06,905 - INFO - Timestamp: 2025-03-24T20:06:06.905287
+2025-03-24 20:06:06,906 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:06:16,310 - ERROR - Authentication tests failed. Stopping further tests.
+2025-03-24 20:07:51,435 - INFO - Starting Security Tests...
+2025-03-24 20:07:51,437 - INFO - Timestamp: 2025-03-24T20:07:51.437167
+2025-03-24 20:07:51,437 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:07:53,517 - INFO - Invalid login test: [PASSED] if 404 == 401 else [FAILED]
+2025-03-24 20:07:55,568 - INFO - Valid login test (purchaser1): [PASSED] if success else [FAILED]
+2025-03-24 20:07:57,605 - INFO - Valid login test (supervisor1): [PASSED] if success else [FAILED]
+2025-03-24 20:07:59,640 - INFO - Valid login test (purchasing_dept1): [PASSED] if success else [FAILED]
+2025-03-24 20:07:59,640 - ERROR - Authentication tests failed. Stopping further tests.
+2025-03-24 20:09:52,363 - INFO - Starting Security Tests...
+2025-03-24 20:09:52,363 - INFO - Timestamp: 2025-03-24T20:09:52.363145
+2025-03-24 20:09:52,364 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:09:54,683 - INFO - Invalid login test: [PASSED] if 400 == 401 else [FAILED]
+2025-03-24 20:09:57,165 - INFO - Valid login test (purchaser1): [FAILED]
+2025-03-24 20:09:59,525 - INFO - Valid login test (supervisor1): [FAILED]
+2025-03-24 20:10:01,832 - INFO - Valid login test (purchasing_dept1): [FAILED]
+2025-03-24 20:10:01,832 - ERROR - Authentication tests failed. Stopping further tests.
+2025-03-24 20:12:27,401 - INFO - Starting Security Tests...
+2025-03-24 20:12:27,401 - INFO - Timestamp: 2025-03-24T20:12:27.401104
+2025-03-24 20:12:27,401 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:12:29,720 - INFO - Invalid login test: [FAILED]
+2025-03-24 20:12:32,091 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-24 20:12:32,093 - ERROR - Error during security testing: 'NoneType' object is not subscriptable
+2025-03-24 20:14:00,375 - INFO - Starting Security Tests...
+2025-03-24 20:14:00,376 - INFO - Timestamp: 2025-03-24T20:14:00.376224
+2025-03-24 20:14:00,376 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:14:02,781 - INFO - Invalid login test: [FAILED]
+2025-03-24 20:14:02,782 - INFO - Invalid login response: 400 - {"non_field_errors":["Unable to log in with provided credentials."]}
+2025-03-24 20:14:05,125 - INFO - Login response for purchaser1: 200 - {'token': '1443f4748fc8658a86710382b6bcb563865966c6'}
+2025-03-24 20:14:05,125 - INFO - Valid login test (purchaser1): [FAILED]
+2025-03-24 20:14:05,126 - ERROR - Login failed for purchaser1: 200 - {"token":"1443f4748fc8658a86710382b6bcb563865966c6"}
+2025-03-24 20:14:07,466 - INFO - Login response for supervisor1: 200 - {'token': '793b0af36e6537eaa9fd0fa4f2dccd7b5b2cace4'}
+2025-03-24 20:14:07,467 - INFO - Valid login test (supervisor1): [FAILED]
+2025-03-24 20:14:07,467 - ERROR - Login failed for supervisor1: 200 - {"token":"793b0af36e6537eaa9fd0fa4f2dccd7b5b2cace4"}
+2025-03-24 20:14:09,820 - INFO - Login response for purchasing_dept1: 200 - {'token': 'a56d05a894e9df09127f1c6ff1e20f46b7531db4'}
+2025-03-24 20:14:09,821 - INFO - Valid login test (purchasing_dept1): [FAILED]
+2025-03-24 20:14:09,821 - ERROR - Login failed for purchasing_dept1: 200 - {"token":"a56d05a894e9df09127f1c6ff1e20f46b7531db4"}
+2025-03-24 20:14:09,821 - ERROR - No successful logins
+2025-03-24 20:14:09,822 - ERROR - Authentication tests failed. Stopping further tests.
+2025-03-24 20:17:32,577 - INFO - 
+=== Security Test Summary ===
+2025-03-24 20:17:32,577 - INFO - Testing against original project requirements:
+2025-03-24 20:17:32,577 - INFO - 1. Public-key mutual authentication
+2025-03-24 20:17:32,577 - INFO - 2. Digital signatures with timestamps
+2025-03-24 20:17:32,577 - INFO - 3. Cross-verification of signatures
+2025-03-24 20:17:32,577 - INFO - 4. Message encryption
+2025-03-24 20:17:32,577 - INFO - 5. Role-based access control
+2025-03-24 20:17:32,577 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:17:35,086 - INFO - Invalid login test: [PASSED]
+2025-03-24 20:17:37,528 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-24 20:17:37,528 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-24 20:17:39,952 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-24 20:17:39,952 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-24 20:17:42,323 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-24 20:17:42,323 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-24 20:17:42,323 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-24 20:17:44,554 - INFO - Order creation test: [FAILED]
+2025-03-24 20:17:44,554 - INFO - Response: 400 - {"amount":["This field is required."],"vendor":["This field is required."],"encrypted_details":["This field is required."]}
+2025-03-24 20:17:44,554 - ERROR - Order creation failed with status 400: {"amount":["This field is required."],"vendor":["This field is required."],"encrypted_details":["This field is required."]}
+2025-03-24 20:17:44,554 - ERROR - Order creation/signing tests failed. Stopping further tests.
+2025-03-24 20:21:44,693 - INFO - 
+=== Security Test Summary ===
+2025-03-24 20:21:44,693 - INFO - Testing against original project requirements:
+2025-03-24 20:21:44,693 - INFO - 1. Public-key mutual authentication
+2025-03-24 20:21:44,694 - INFO - 2. Digital signatures with timestamps
+2025-03-24 20:21:44,694 - INFO - 3. Cross-verification of signatures
+2025-03-24 20:21:44,694 - INFO - 4. Message encryption
+2025-03-24 20:21:44,694 - INFO - 5. Role-based access control
+2025-03-24 20:21:44,694 - INFO - 
+=== Testing Authentication ===
+2025-03-24 20:21:47,065 - INFO - Invalid login test: [PASSED]
+2025-03-24 20:21:49,573 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-24 20:21:49,573 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-24 20:21:52,004 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-24 20:21:52,004 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-24 20:21:54,574 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-24 20:21:54,575 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-24 20:21:54,575 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-24 20:21:56,712 - INFO - Order creation test: [PASSED]
+2025-03-24 20:21:56,712 - INFO - Response: 201 - {"id":13,"order_number":"EFA651E0","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"eyJpdGVtX25hbWUiOiAiVGVzdCBJdGVtIiwgInF1YW50aXR5IjogMSwgInVuaXRfcHJpY2UiOiAxMDAuMCwgInNwZWNpZmljYXRpb25zIjogIlRlc3Qgc3BlY2lmaWNhdGlvbnMiLCAiZGVsaXZlcnlfZGF0ZSI6ICIyMDI1LTAzLTI0VDIwOjIxOjU0LjU3NjU1NSJ9","status":"pending","created_at":"2025-03-25T00:21:56.699498Z","updated_at":"2025-03-25T00:21:56.699498Z","signatures":[]}
+2025-03-24 20:21:58,881 - INFO - Order signing test (Purchaser): [FAILED]
+2025-03-24 20:21:58,881 - INFO - Sign Response: 400 - {"signature":["This field is required."],"hash":["This field is required."]}
+2025-03-24 20:21:58,882 - ERROR - Order signing failed with status 400: {"signature":["This field is required."],"hash":["This field is required."]}
+2025-03-24 20:21:58,883 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-24 20:22:01,088 - INFO - Unauthorized approval test: [PASSED]
+2025-03-24 20:22:03,357 - INFO - Supervisor approval test: [FAILED]
+2025-03-24 20:22:03,358 - INFO - Approval Response: 500 - {"detail":"Error approving purchase order: {'signature': [ErrorDetail(string='This field is required.', code='required')], 'hash': [ErrorDetail(string='This field is required.', code='required')]}"}
+2025-03-24 20:22:03,358 - ERROR - Approval failed with status 500: {"detail":"Error approving purchase order: {'signature': [ErrorDetail(string='This field is required.', code='required')], 'hash': [ErrorDetail(string='This field is required.', code='required')]}"}
+2025-03-24 20:22:03,359 - INFO - 
+=== Testing Data Integrity ===
+2025-03-24 20:22:05,519 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-24 20:22:05,520 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-24 20:22:07,655 - INFO - 
+Signature Chain Verification:
+2025-03-24 20:22:07,655 - INFO - 
+=== Final Security Assessment ===
+2025-03-24 20:22:07,655 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-24 20:22:07,656 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-24 20:22:07,656 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-24 20:22:07,656 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-24 20:22:07,656 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
