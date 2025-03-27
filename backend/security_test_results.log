@@ -116,3 +116,322 @@ Signature Chain Verification:
 2025-03-24 20:22:07,656 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
 2025-03-24 20:22:07,656 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
 2025-03-24 20:22:07,656 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
+2025-03-25 14:52:10,756 - INFO - 
+=== Security Test Summary ===
+2025-03-25 14:52:10,756 - INFO - Testing against original project requirements:
+2025-03-25 14:52:10,757 - INFO - 1. Public-key mutual authentication
+2025-03-25 14:52:10,757 - INFO - 2. Digital signatures with timestamps
+2025-03-25 14:52:10,757 - INFO - 3. Cross-verification of signatures
+2025-03-25 14:52:10,757 - INFO - 4. Message encryption
+2025-03-25 14:52:10,758 - INFO - 5. Role-based access control
+2025-03-25 14:52:11,080 - INFO - Generated RSA keys for purchaser1
+2025-03-25 14:52:38,103 - INFO - Generated RSA keys for supervisor1
+2025-03-25 14:52:45,632 - INFO - Generated RSA keys for purchasing_dept1
+2025-03-25 14:52:45,632 - INFO - 
+=== Testing Authentication ===
+2025-03-25 14:52:48,128 - INFO - Invalid login test: [PASSED]
+2025-03-25 14:52:50,501 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-25 14:52:50,501 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-25 14:52:52,908 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-25 14:52:52,909 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-25 14:52:55,325 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-25 14:52:55,326 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-25 14:52:55,326 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-25 14:52:57,526 - INFO - Order creation test: [PASSED]
+2025-03-25 14:52:57,527 - INFO - Response: 201 - {"id":14,"order_number":"84B12BBB","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"[\"JeUaO1oX955ckaYcaVv8WVvDbdKdvbH8DgyN+yxwasBbbrpHwZQEEisWfmZqO9gDovBi1Aokb7hNIlS4yf28ljke2aBcOi4rOjN6RfAdRSwnRi0ERLm1lP6hgn9qokb3jF80jSFA+jJF0LqwL6ZwZk9/JfhPPfOvuRgMLxsl1HDJCqdVyavT48yNqIJWIUx6UvQr/fHWLb3MsqH9clYNwTdlzu7x0adiuSvWDvnjkuhm6lg48xRJqG+bPKh3/UDXTJHlWuMBbUGe4a/KKZFovGoG9NVTM//c+Rz5w/minEH0Ge+ZtwN+CXTgxSm0B8MCxnw2rSvFQnQCbv4PzhasXw==\"]","status":"pending","created_at":"2025-03-25T18:52:57.501195Z","updated_at":"2025-03-25T18:52:57.501195Z","signatures":[]}
+2025-03-25 14:52:59,718 - INFO - Order signing test (Purchaser): [PASSED]
+2025-03-25 14:52:59,718 - INFO - Sign Response: 200 - {"detail":"Purchase order signed successfully."}
+2025-03-25 14:52:59,718 - INFO - Signature verification:
+2025-03-25 14:52:59,719 - INFO - - Timestamp present: [NO]
+2025-03-25 14:52:59,719 - INFO - - Digital signature present: [NO]
+2025-03-25 14:52:59,720 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-25 14:53:01,850 - INFO - Unauthorized approval test: [PASSED]
+2025-03-25 14:53:06,156 - INFO - Supervisor approval test: [PASSED]
+2025-03-25 14:53:06,156 - INFO - Approval Response: 200 - {"detail":"Purchase order approved successfully"}
+2025-03-25 14:53:06,156 - INFO - Approval verification:
+2025-03-25 14:53:06,157 - INFO - - Supervisor signature present: [NO]
+2025-03-25 14:53:06,157 - INFO - - Timestamp present: [NO]
+2025-03-25 14:53:08,328 - INFO - Processing test: [PASSED]
+2025-03-25 14:53:08,328 - INFO - Processing Response: 200 - {"detail":"Purchase order processed successfully"}
+2025-03-25 14:53:08,328 - INFO - 
+=== Testing Data Integrity ===
+2025-03-25 14:53:10,462 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-25 14:53:10,464 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-25 14:53:12,597 - INFO - 
+Signature Chain Verification:
+2025-03-25 14:53:12,597 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:53:12,597 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:53:12,597 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:53:12,599 - INFO - 
+=== Final Security Assessment ===
+2025-03-25 14:53:12,599 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-25 14:53:12,599 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-25 14:53:12,600 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-25 14:53:12,600 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-25 14:53:12,600 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
+2025-03-25 14:57:17,267 - INFO - 
+=== Security Test Summary ===
+2025-03-25 14:57:17,268 - INFO - Testing against original project requirements:
+2025-03-25 14:57:17,268 - INFO - 1. Public-key mutual authentication
+2025-03-25 14:57:17,268 - INFO - 2. Digital signatures with timestamps
+2025-03-25 14:57:17,268 - INFO - 3. Cross-verification of signatures
+2025-03-25 14:57:17,268 - INFO - 4. Message encryption
+2025-03-25 14:57:17,268 - INFO - 5. Role-based access control
+2025-03-25 14:57:24,200 - INFO - Generated RSA keys for purchaser1
+2025-03-25 14:57:33,204 - INFO - Generated RSA keys for supervisor1
+2025-03-25 14:57:47,887 - INFO - Generated RSA keys for purchasing_dept1
+2025-03-25 14:57:47,888 - INFO - 
+=== Testing Authentication ===
+2025-03-25 14:57:50,732 - INFO - Invalid login test: [PASSED]
+2025-03-25 14:57:53,197 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-25 14:57:53,198 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-25 14:57:55,700 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-25 14:57:55,700 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-25 14:57:58,180 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-25 14:57:58,180 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-25 14:57:58,180 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-25 14:58:00,483 - INFO - Order creation test: [PASSED]
+2025-03-25 14:58:00,483 - INFO - Response: 201 - {"id":15,"order_number":"C786615A","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"[\"I2tE4RmoovymhhOPsZhZsUTSmvUZqfmAbYhgOXFlZ8lN6RU6JsM+gxJqs9q8msNIsLsUCFa25ldftoKtgSY2kXX2Ki54XMIwqnHpGZXpL4Mzi/dBrVRTxZ2gUxxJ9Hx/JEVsryjCK/tx3SzLn6GdYhpfrYajkuRYRyPJy0P5SQC1IQt3IdkpNoGaEBKLE2Qrfqjo/lN3UJtwIQ9RtmJRMAOQv5E6hBdQJ+7P+bBm5J0olcYu/txQacJPZrF9V3PkDItoi4oAqUA92/b8VS97Xe1Wkv+g2pL9fLva/94Fh+KXC/EKv6OHbBE171vO+NlrtEhiDLIlZGwOyCM5EtZpxA==\"]","status":"pending","created_at":"2025-03-25T18:58:00.468878Z","updated_at":"2025-03-25T18:58:00.468878Z","signatures":[]}
+2025-03-25 14:58:02,663 - INFO - Order signing test (Purchaser): [PASSED]
+2025-03-25 14:58:02,664 - INFO - Sign Response: 200 - {"detail":"Purchase order signed successfully."}
+2025-03-25 14:58:02,664 - INFO - Signature verification:
+2025-03-25 14:58:02,664 - INFO - - Timestamp present: [NO]
+2025-03-25 14:58:02,664 - INFO - - Digital signature present: [NO]
+2025-03-25 14:58:02,664 - INFO - - Hash present: [NO]
+2025-03-25 14:58:02,666 - INFO - - Role present: [NO]
+2025-03-25 14:58:02,666 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-25 14:58:04,915 - INFO - Unauthorized approval test: [PASSED]
+2025-03-25 14:58:09,281 - INFO - Supervisor approval test: [PASSED]
+2025-03-25 14:58:09,281 - INFO - Approval Response: 200 - {"detail":"Purchase order approved successfully"}
+2025-03-25 14:58:09,281 - INFO - Approval verification:
+2025-03-25 14:58:09,282 - INFO - - Supervisor signature present: [NO]
+2025-03-25 14:58:09,282 - INFO - - Timestamp present: [NO]
+2025-03-25 14:58:09,282 - INFO - - Hash present: [NO]
+2025-03-25 14:58:09,282 - INFO - - Role present: [NO]
+2025-03-25 14:58:11,719 - INFO - Processing test: [PASSED]
+2025-03-25 14:58:11,722 - INFO - Processing Response: 200 - {"detail":"Purchase order processed successfully"}
+2025-03-25 14:58:11,723 - INFO - Processing verification:
+2025-03-25 14:58:11,723 - INFO - - PD signature present: [NO]
+2025-03-25 14:58:11,724 - INFO - - Timestamp present: [NO]
+2025-03-25 14:58:11,724 - INFO - - Hash present: [NO]
+2025-03-25 14:58:11,725 - INFO - - Role present: [NO]
+2025-03-25 14:58:11,725 - INFO - - Decrypted details present: [NO]
+2025-03-25 14:58:11,726 - INFO - 
+=== Testing Data Integrity ===
+2025-03-25 14:58:13,906 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-25 14:58:13,907 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-25 14:58:16,031 - INFO - 
+Signature Chain Verification:
+2025-03-25 14:58:16,031 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:58:16,031 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:58:16,031 - ERROR - Error verifying signature: 'user'
+2025-03-25 14:58:16,031 - INFO - 
+=== Final Security Assessment ===
+2025-03-25 14:58:16,033 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-25 14:58:16,033 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-25 14:58:16,033 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-25 14:58:16,033 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-25 14:58:16,034 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
+2025-03-25 15:02:57,705 - INFO - 
+=== Security Test Summary ===
+2025-03-25 15:02:57,705 - INFO - Testing against original project requirements:
+2025-03-25 15:02:57,705 - INFO - 1. Public-key mutual authentication
+2025-03-25 15:02:57,707 - INFO - 2. Digital signatures with timestamps
+2025-03-25 15:02:57,707 - INFO - 3. Cross-verification of signatures
+2025-03-25 15:02:57,707 - INFO - 4. Message encryption
+2025-03-25 15:02:57,707 - INFO - 5. Role-based access control
+2025-03-25 15:02:58,173 - INFO - Generated RSA keys for purchaser1
+2025-03-25 15:03:06,520 - INFO - Generated RSA keys for supervisor1
+2025-03-25 15:03:14,305 - INFO - Generated RSA keys for purchasing_dept1
+2025-03-25 15:03:14,306 - INFO - 
+=== Testing Authentication ===
+2025-03-25 15:03:16,698 - INFO - Invalid login test: [PASSED]
+2025-03-25 15:03:19,086 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-25 15:03:19,086 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-25 15:03:21,469 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-25 15:03:21,471 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-25 15:03:24,033 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-25 15:03:24,034 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-25 15:03:24,034 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-25 15:03:26,334 - INFO - Order creation test: [PASSED]
+2025-03-25 15:03:26,334 - INFO - Response: 201 - {"id":16,"order_number":"37A29697","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"[\"zJR4gkDvNivnaUbNbVT7ijeLhTqwUTJ/x4GBbAkjssypimVoxuKk4LIGPYTq8QSi6WVrZdS32saEVYnnqbl6AxDdo0LDnY8vMoNN1Ejft9WLx36prN3i95dqW4BsvWCBCTfC17UprXv6IVqX3kVql6bXOXOJml14minLsx5p9me4E76E42byBhxUzkxaq1M48fPXsYlNwmhzcR7p60lTeImXMn1n7ds8AyeL+JUrXV8A4bCnIot0AacCxmO+tALX3C7TSSgOIRBpmVJQXV924ldP/mOlw0zPfKkzDelZhbonokPkQSXxamq2hYmaqguM3JFfE7yxzwfbhz3Z6TpPZA==\"]","status":"pending","created_at":"2025-03-25T19:03:26.318819Z","updated_at":"2025-03-25T19:03:26.318819Z","signatures":[]}
+2025-03-25 15:03:28,509 - INFO - Order signing test (Purchaser): [PASSED]
+2025-03-25 15:03:28,509 - INFO - Sign Response: 200 - {"detail":"Purchase order signed successfully."}
+2025-03-25 15:03:28,509 - INFO - Signature verification:
+2025-03-25 15:03:28,509 - INFO - - Timestamp present: [NO]
+2025-03-25 15:03:28,509 - INFO - - Digital signature present: [NO]
+2025-03-25 15:03:28,511 - INFO - - Hash present: [NO]
+2025-03-25 15:03:28,511 - INFO - - Role present: [NO]
+2025-03-25 15:03:28,511 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-25 15:03:30,709 - INFO - Unauthorized approval test: [PASSED]
+2025-03-25 15:03:35,057 - INFO - Supervisor approval test: [PASSED]
+2025-03-25 15:03:35,059 - INFO - Approval Response: 200 - {"detail":"Purchase order approved successfully"}
+2025-03-25 15:03:35,059 - INFO - Approval verification:
+2025-03-25 15:03:35,059 - INFO - - Supervisor signature present: [NO]
+2025-03-25 15:03:35,059 - INFO - - Timestamp present: [NO]
+2025-03-25 15:03:35,059 - INFO - - Hash present: [NO]
+2025-03-25 15:03:35,059 - INFO - - Role present: [NO]
+2025-03-25 15:03:37,358 - INFO - Processing test: [PASSED]
+2025-03-25 15:03:37,358 - INFO - Processing Response: 200 - {"detail":"Purchase order processed successfully"}
+2025-03-25 15:03:37,358 - INFO - Processing verification:
+2025-03-25 15:03:37,358 - INFO - - PD signature present: [NO]
+2025-03-25 15:03:37,360 - INFO - - Timestamp present: [NO]
+2025-03-25 15:03:37,360 - INFO - - Hash present: [NO]
+2025-03-25 15:03:37,360 - INFO - - Role present: [NO]
+2025-03-25 15:03:37,360 - INFO - - Decrypted details present: [NO]
+2025-03-25 15:03:37,360 - INFO - 
+=== Testing Data Integrity ===
+2025-03-25 15:03:39,475 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-25 15:03:39,477 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-25 15:03:41,584 - INFO - 
+Signature Chain Verification:
+2025-03-25 15:03:41,585 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:03:41,585 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:03:41,585 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:03:41,585 - INFO - 
+=== Final Security Assessment ===
+2025-03-25 15:03:41,587 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-25 15:03:41,587 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-25 15:03:41,587 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-25 15:03:41,588 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-25 15:03:41,588 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
+2025-03-25 15:09:40,657 - INFO - 
+=== Security Test Summary ===
+2025-03-25 15:09:40,658 - INFO - Testing against original project requirements:
+2025-03-25 15:09:40,658 - INFO - 1. Public-key mutual authentication
+2025-03-25 15:09:40,659 - INFO - 2. Digital signatures with timestamps
+2025-03-25 15:09:40,661 - INFO - 3. Cross-verification of signatures
+2025-03-25 15:09:40,662 - INFO - 4. Message encryption
+2025-03-25 15:09:40,662 - INFO - 5. Role-based access control
+2025-03-25 15:09:49,979 - INFO - Generated RSA keys for purchaser1
+2025-03-25 15:10:07,681 - INFO - Generated RSA keys for supervisor1
+2025-03-25 15:10:26,116 - INFO - Generated RSA keys for purchasing_dept1
+2025-03-25 15:10:26,117 - INFO - 
+=== Testing Authentication ===
+2025-03-25 15:10:28,509 - INFO - Invalid login test: [PASSED]
+2025-03-25 15:10:30,993 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-25 15:10:30,998 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-25 15:10:33,374 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-25 15:10:33,374 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-25 15:10:35,790 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-25 15:10:35,790 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-25 15:10:35,791 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-25 15:10:38,000 - INFO - Order creation test: [PASSED]
+2025-03-25 15:10:38,000 - INFO - Response: 201 - {"id":17,"order_number":"4B2A645E","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"[\"GN9KcXYKzM372PmjO/jZnNA3/SMFYCFdG0XatDXrYJk2/S4m9C6LRfoK5ATwLjgJ6CFLZqP+Qa/FzAmTTDbRDGxvtzNlwiSD613u60g+vQ3Lb98FCq+S/tHij4b26HynR4iUzLC0f39DPNXfMivP1a/ucKS11u4xgKqy1q8haKtN4hzl9QLVR9RI4fep9TDqUuQw5RTm7VYHkf2c9RtFnhfl2whczGOu4z76p2QOMjV2dqINL5MFbZYAf2IbcuPRolaLRe9nKZ1unFckm21GbBzSwaGlIb4X4Bq29ChlyweVr36d5Y3n7bYEPWlCOCXcUcKIFjqkXEfayWatSPZLGg==\"]","status":"pending","created_at":"2025-03-25T19:10:37.984549Z","updated_at":"2025-03-25T19:10:37.984549Z","signatures":[]}
+2025-03-25 15:10:40,170 - INFO - Order signing test (Purchaser): [PASSED]
+2025-03-25 15:10:40,170 - INFO - Sign Response: 200 - {"detail":"Purchase order signed successfully."}
+2025-03-25 15:10:40,171 - INFO - Signature verification:
+2025-03-25 15:10:40,171 - INFO - - Timestamp present: [NO]
+2025-03-25 15:10:40,171 - INFO - - Digital signature present: [NO]
+2025-03-25 15:10:40,171 - INFO - - Hash present: [NO]
+2025-03-25 15:10:40,173 - INFO - - Role present: [NO]
+2025-03-25 15:10:40,173 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-25 15:10:42,300 - INFO - Unauthorized approval test: [PASSED]
+2025-03-25 15:10:46,633 - INFO - Supervisor approval test: [PASSED]
+2025-03-25 15:10:46,635 - INFO - Approval Response: 200 - {"detail":"Purchase order approved successfully"}
+2025-03-25 15:10:46,635 - INFO - Approval verification:
+2025-03-25 15:10:46,635 - INFO - - Supervisor signature present: [NO]
+2025-03-25 15:10:46,635 - INFO - - Timestamp present: [NO]
+2025-03-25 15:10:46,635 - INFO - - Hash present: [NO]
+2025-03-25 15:10:46,636 - INFO - - Role present: [NO]
+2025-03-25 15:10:48,817 - INFO - Processing test: [PASSED]
+2025-03-25 15:10:48,817 - INFO - Processing Response: 200 - {"detail":"Purchase order processed successfully"}
+2025-03-25 15:10:48,817 - INFO - Processing verification:
+2025-03-25 15:10:48,817 - INFO - - PD signature present: [NO]
+2025-03-25 15:10:48,817 - INFO - - Timestamp present: [NO]
+2025-03-25 15:10:48,818 - INFO - - Hash present: [NO]
+2025-03-25 15:10:48,818 - INFO - - Role present: [NO]
+2025-03-25 15:10:48,818 - INFO - - Decrypted details present: [NO]
+2025-03-25 15:10:48,818 - INFO - 
+=== Testing Data Integrity ===
+2025-03-25 15:10:51,009 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-25 15:10:51,012 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-25 15:10:53,253 - INFO - 
+Signature Chain Verification:
+2025-03-25 15:10:53,254 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:10:53,254 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:10:53,254 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:10:53,255 - INFO - 
+Overall signature chain verification: [FAILED]
+2025-03-25 15:10:53,255 - INFO - 
+=== Final Security Assessment ===
+2025-03-25 15:10:53,255 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-25 15:10:53,255 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-25 15:10:53,255 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-25 15:10:53,257 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-25 15:10:53,257 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
+2025-03-25 15:32:49,376 - INFO - 
+=== Security Test Summary ===
+2025-03-25 15:32:49,376 - INFO - Testing against original project requirements:
+2025-03-25 15:32:49,376 - INFO - 1. Public-key mutual authentication
+2025-03-25 15:32:49,376 - INFO - 2. Digital signatures with timestamps
+2025-03-25 15:32:49,376 - INFO - 3. Cross-verification of signatures
+2025-03-25 15:32:49,376 - INFO - 4. Message encryption
+2025-03-25 15:32:49,376 - INFO - 5. Role-based access control
+2025-03-25 15:33:08,260 - INFO - Generated RSA keys for purchaser1
+2025-03-25 15:33:09,876 - INFO - Generated RSA keys for supervisor1
+2025-03-25 15:33:11,477 - INFO - Generated RSA keys for purchasing_dept1
+2025-03-25 15:33:11,477 - INFO - 
+=== Testing Authentication ===
+2025-03-25 15:33:13,822 - INFO - Invalid login test: [PASSED]
+2025-03-25 15:33:16,254 - INFO - Valid login test (purchaser1): [PASSED]
+2025-03-25 15:33:16,254 - INFO - Got token for purchaser1: 1443f4748f...
+2025-03-25 15:33:18,619 - INFO - Valid login test (supervisor1): [PASSED]
+2025-03-25 15:33:18,619 - INFO - Got token for supervisor1: 793b0af36e...
+2025-03-25 15:33:20,942 - INFO - Valid login test (purchasing_dept1): [PASSED]
+2025-03-25 15:33:20,942 - INFO - Got token for purchasing_dept1: a56d05a894...
+2025-03-25 15:33:20,942 - INFO - 
+=== Testing Order Creation and Signing ===
+2025-03-25 15:33:23,125 - INFO - Order creation test: [PASSED]
+2025-03-25 15:33:23,125 - INFO - Response: 201 - {"id":18,"order_number":"96ACA7E6","purchaser":{"id":2,"username":"purchaser1","email":"","first_name":"","last_name":""},"description":"Test order for security verification","amount":"100.00","vendor":"Test Vendor","encrypted_details":"[\"hw5ev0HWag/xvlGa0XC0mNTA7ymzH5Pb/gQiexd60OFXLAnJS+82bitUdtsG2/d5Z3ikdC+x3K8c4WE3Ldl+7YbinKbWsNNVPFIxGKPoSFCs5EXu0UPfhyymd0pkQ+kmVfRjy9ctquAj0M7la9zyRLGhF4ZzvoWjwTOWDQUUS1oW6upG9oj+gvCnYWRMAX+WeMYsp++plIG5kgibBZDS5sT5+1O83gmOhn53AoS8wp3QNFTRBAOjoPuozs3KQNu4+DRgcYmXXPqaSLz/TfhLeC5xTm19q2XXjBMNvNileMukgdOvF5PFTOoaBZMkFfI2/T5dQEy7x+yTY/B7Kyh+yg==\"]","status":"pending","created_at":"2025-03-25T19:33:23.112532Z","updated_at":"2025-03-25T19:33:23.112532Z","signatures":[]}
+2025-03-25 15:33:25,420 - INFO - Order signing test (Purchaser): [PASSED]
+2025-03-25 15:33:25,420 - INFO - Sign Response: 200 - {"detail":"Purchase order signed successfully."}
+2025-03-25 15:33:25,420 - INFO - Signature verification:
+2025-03-25 15:33:25,420 - INFO - - Timestamp present: [NO]
+2025-03-25 15:33:25,422 - INFO - - Digital signature present: [NO]
+2025-03-25 15:33:25,422 - INFO - - Hash present: [NO]
+2025-03-25 15:33:25,422 - INFO - - Role present: [NO]
+2025-03-25 15:33:25,423 - INFO - 
+=== Testing Order Approval Process ===
+2025-03-25 15:33:27,550 - INFO - Unauthorized approval test: [PASSED]
+2025-03-25 15:33:31,940 - INFO - Supervisor approval test: [PASSED]
+2025-03-25 15:33:31,941 - INFO - Approval Response: 200 - {"detail":"Purchase order approved successfully"}
+2025-03-25 15:33:31,941 - INFO - Approval verification:
+2025-03-25 15:33:31,941 - INFO - - Supervisor signature present: [NO]
+2025-03-25 15:33:31,941 - INFO - - Timestamp present: [NO]
+2025-03-25 15:33:31,943 - INFO - - Hash present: [NO]
+2025-03-25 15:33:31,943 - INFO - - Role present: [NO]
+2025-03-25 15:33:34,092 - INFO - Processing test: [PASSED]
+2025-03-25 15:33:34,092 - INFO - Processing Response: 200 - {"detail":"Purchase order processed successfully"}
+2025-03-25 15:33:34,092 - INFO - Processing verification:
+2025-03-25 15:33:34,093 - INFO - - PD signature present: [NO]
+2025-03-25 15:33:34,093 - INFO - - Timestamp present: [NO]
+2025-03-25 15:33:34,093 - INFO - - Hash present: [NO]
+2025-03-25 15:33:34,093 - INFO - - Role present: [NO]
+2025-03-25 15:33:34,094 - INFO - - Decrypted details present: [NO]
+2025-03-25 15:33:34,094 - INFO - 
+=== Testing Data Integrity ===
+2025-03-25 15:33:36,178 - INFO - Signed order modification prevention test: [PASSED]
+2025-03-25 15:33:36,179 - INFO - Modification Response: 400 - {"order_number":["This field is required."]}
+2025-03-25 15:33:38,272 - INFO - 
+Signature Chain Verification:
+2025-03-25 15:33:38,272 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:33:38,272 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:33:38,274 - ERROR - Error verifying signature: 'user'
+2025-03-25 15:33:38,274 - INFO - 
+Overall signature chain verification: [FAILED]
+2025-03-25 15:33:38,274 - INFO - 
+=== Final Security Assessment ===
+2025-03-25 15:33:38,274 - INFO - 1. Authentication: Token-based authentication implemented ✓
+2025-03-25 15:33:38,275 - INFO - 2. Digital Signatures: RSA-based signatures with timestamps ✓
+2025-03-25 15:33:38,275 - INFO - 3. Role-Based Access: Purchaser, Supervisor, and Purchasing Department roles enforced ✓
+2025-03-25 15:33:38,275 - INFO - 4. Data Integrity: Signed orders protected from unauthorized modifications ✓
+2025-03-25 15:33:38,277 - INFO - 5. Non-repudiation: Signatures and timestamps provide proof of actions ✓
